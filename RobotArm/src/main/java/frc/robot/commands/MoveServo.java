@@ -31,7 +31,8 @@ public class MoveServo extends CommandBase {
   
   @Override
   public boolean isFinished() {
-    return false;
+    if (servo.getAngle() == position){return true;}
+    else{return false;}
   }
 
 }
