@@ -8,11 +8,11 @@ public class SpeedServo extends CommandBase {
   private Servo servo;
   private double position;
   private int breakpoints;
-  private double ipos;
   private double totalTurn;
   private double fpos;
   private int count;
   private double iTime;
+  private int runCount;
 
   /**
    * Creates a new MoveServo.
@@ -25,33 +25,57 @@ public class SpeedServo extends CommandBase {
 
   @Override
   public void initialize() {
-    iTime = System.currentTimeMillis();
-    count = 0;
-    ipos = servo.getAngle();
-    totalTurn = position - ipos;
-    if(totalTurn < 0){
-      
-    } else {
-      fpos = totalTurn / breakpoints;
-    }
+    runCount = 0;
   }
 
   @Override
   public void execute() {
-    if(System.currentTimeMillis() - iTime > 1000){
+    System.out.println(servo.getAngle());
+    System.out.println("TT: " + totalTurn);
+    runCount++;
+    if(runCount==1){
+    iTime = System.currentTimeMillis();
+    totalTurn = position - servo.getAngle();
+    System.out.println("INITTOTALTURN: " + totalTurn);
+    if(totalTurn < 0){
+      System.out.println("Negative turn!");
+      fpos = Math.abs(totalTurn) / breakpoints;
+      fpos = servo.getAngle() - fpos;
+      count = 0;
+    } else {
+      fpos = totalTurn / breakpoints;
+      fpos = fpos + servo.getAngle();
+      count = 0;
+    }
+  }
+    if(totalTurn < 0){
+      if(System.currentTimeMillis() - iTime > 250){
+        System.out.println("Negative turn!!");
+        servo.setAngle(fpos - (count * fpos));
+        count++;
+        iTime = System.currentTimeMillis();
+      }
+    } else {
+    if(System.currentTimeMillis() - iTime > 250){
     servo.setAngle(fpos + (count * fpos));
     count++;
     iTime = System.currentTimeMillis();
+      }
     }
+
   }
 
   @Override
   public void end(boolean interrupted) {
+    servo.stopMotor();
+    runCount=0;
   }
   
   @Override
   public boolean isFinished() {
-    if (servo.getAngle() == position){return true;}
+    if (servo.getAngle() <= position++ && servo.getAngle() >= position--){
+      System.out.println("Done!");
+      return true;}
     else{return false;}
   }
 

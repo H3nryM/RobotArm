@@ -23,12 +23,16 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
+    // joystick.getA()
+    // .whenPressed(new MoveServo(testServo, 150));
+    // joystick.getB()
+    // .whenPressed(new MoveServo(testServo, 15));
     joystick.getA()
     .whenPressed(new SpeedServo(testServo, 150, 10));
     joystick.getB()
-    .whenPressed(new SpeedServo(testServo, 90, 2));
+    .whenPressed(new SpeedServo(testServo, 90, 3));
     joystick.getXButtonValue()
-    .whenPressed(new SpeedServo(testServo, 45, 5));
+    .whenPressed(new SpeedServo(testServo, 45, 3));
     joystick.getYButtonValue()
     .whileHeld(new MoveToTx(limelight, testServo));
 

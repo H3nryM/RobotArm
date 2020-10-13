@@ -18,10 +18,12 @@ public class MoveServo extends CommandBase {
 
   @Override
   public void initialize() {
+    System.out.println(servo.getAngle());
   }
 
   @Override
   public void execute() {
+    System.out.println(servo.getAngle());
     servo.setAngle(position);
   }
 
