@@ -10,21 +10,23 @@ public class ServoAToBwBPs extends CommandBase {
   private double p2;
   private double iT;
   private double runCount;
+  private double dbps;
   private double bps;
   private double totalTurn;
   private double fpos;
   private double incs;
   private int count;
   private boolean done;
+  private double bT = 350;
 
   /**
    * Creates a new MoveServo.
    */
-  public ServoAToBwBPs(Servo servo, double p1, double p2, int bps) {
+  public ServoAToBwBPs(Servo servo, double p1, double p2, int dbps) {
   this.servo = servo;
   this.p1 = p1;
   this.p2 = p2;
-  this.bps = bps;
+  this.dbps = dbps;
   }
 
   @Override
@@ -42,6 +44,7 @@ public class ServoAToBwBPs extends CommandBase {
     iT = System.currentTimeMillis();
     servo.setAngle(p1);
     totalTurn = p2 - p1;
+    bps = dbps + 2;
     if(totalTurn < 0){
       System.out.println("Negative turn!");
       incs = Math.abs(totalTurn) / bps;
@@ -54,7 +57,7 @@ public class ServoAToBwBPs extends CommandBase {
       }
     }
 
-    if(System.currentTimeMillis() - iT > 500){
+    if(System.currentTimeMillis() - iT > bT && count!=bps){
       if(totalTurn < 0){
         servo.setAngle(fpos - (count * incs));
         count++;
@@ -64,10 +67,13 @@ public class ServoAToBwBPs extends CommandBase {
         count++;
         iT = System.currentTimeMillis();
       }
-    if(servo.getAngle() == p2){
-      done = true;
-      }
-
+    }
+    if(count == bps){
+      servo.setAngle(p2);
+      iT=System.currentTimeMillis();
+      if(System.currentTimeMillis() > bT){
+        done = true;
+        }
     }
   }
 
@@ -76,7 +82,7 @@ public class ServoAToBwBPs extends CommandBase {
     servo.stopMotor();
     runCount = 0;
     done = false;
-    System.out.println("done, I'm at: " + servo.getAngle() + " degrees!");
+    System.out.println("done, I'm at: " +p2+ " degrees!");
   }
   
   @Override

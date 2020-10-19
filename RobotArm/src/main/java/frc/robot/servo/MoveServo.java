@@ -44,6 +44,7 @@ public class MoveServo extends CommandBase {
     servo.stopMotor();
     done = false;
     runCount = 0;
+    System.out.println("done");
   }
   
   @Override
