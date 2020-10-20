@@ -10,6 +10,7 @@ import frc.robot.limelight.MoveToTx;
 import frc.robot.servo.MoveServo;
 import frc.robot.servo.ServoAToBwBPs;
 import frc.robot.servo.ServoPointAToB;
+import frc.robot.servo.ServoStartingPositions;
 import frc.robot.servo.SpeedServo;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -26,23 +27,12 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     joystick.getA()
-    .whenPressed(new MoveServo(testServo, 0));
-    // joystick.getB()
-    // .whenPressed(new MoveServo(testServo, 15));
-    // joystick.getA()
-    // .whenPressed(new SpeedServo(testServo, 150, 10));
-    // joystick.getB()
-    // .whenPressed(new SpeedServo(testServo, 90, 3));
-    // joystick.getXButtonValue()
-    // .whenPressed(new SpeedServo(testServo, 45, 3));
-    // joystick.getYButtonValue()
-    // .whileHeld(new MoveToTx(limelight, testServo));
+    .whenPressed(new MoveServo(testServo, 130));
     joystick.getB()
-    .whenPressed(new ServoPointAToB(testServo, 0, 180));
-    joystick.getXButtonValue()
-    .whenPressed(new ServoPointAToB(testServo, 180, 0));
-    joystick.getYButtonValue()
-    .whenPressed(new ServoAToBwBPs(testServo, 0, 135, 1));
+    .whenPressed(new MoveServo(testServo, 135));
+    // joystick.getB()
+    // .whenPressed(new ServoPointAToB(testServo, 0, 180));
+
 
   }
 

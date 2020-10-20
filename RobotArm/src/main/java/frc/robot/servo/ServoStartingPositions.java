@@ -4,8 +4,11 @@ public enum ServoStartingPositions{
 
     // for the servo that actuates the hinge, 2 default positions - 
     // first is flat against wall, other is 90 degrees pointing at car
-    HingeServoWall(150),
+    HingeServoWall(135),
     HingeServoCar(0),
+
+    // for the servo that spins the robot arm
+    SpinServoDefault(3.1415);
 
 
     ;

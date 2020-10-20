@@ -17,7 +17,7 @@ public class ServoAToBwBPs extends CommandBase {
   private double incs;
   private int count;
   private boolean done;
-  private double bT = 350;
+  private double bT = 500;
 
   /**
    * Creates a new MoveServo.
