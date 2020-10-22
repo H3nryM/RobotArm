@@ -18,7 +18,10 @@ public class RobotContainer {
 
   private final PaddedXbox joystick = new PaddedXbox();
   private final LimelightSub limelight = new LimelightSub();
-  private final Servo testServo = new Servo(1);
+
+  // Servos
+  private final Servo hingeServo = new Servo(0);
+  private final Servo spinServo = new Servo(1);
 
 
   public RobotContainer() {
@@ -27,12 +30,7 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     joystick.getA()
-    .whenPressed(new MoveServo(testServo, 130));
-    joystick.getB()
-    .whenPressed(new MoveServo(testServo, 135));
-    // joystick.getB()
-    // .whenPressed(new ServoPointAToB(testServo, 0, 180));
-
+    .whenPressed(new MoveServo(hingeServo, 75));
 
   }
 

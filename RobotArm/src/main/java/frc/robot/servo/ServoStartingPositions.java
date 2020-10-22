@@ -17,5 +17,4 @@ public enum ServoStartingPositions{
     ServoStartingPositions(double val){
         this.val = val;
     }
-
 }

@@ -30,6 +30,7 @@ public class MoveServo extends CommandBase {
   public void execute() {
     runCount++;
     System.out.println(servo.getAngle());
+    System.out.println(servo);
     if(runCount==1){
       iT=System.currentTimeMillis();
       }

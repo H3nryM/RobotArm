@@ -32,6 +32,7 @@ public class ServoPointAToB extends CommandBase {
   @Override
   public void execute() {
     System.out.println(servo.getAngle());
+    System.out.println(servo);
     runCount++;
     if(runCount == 1){
     iT = System.currentTimeMillis();
