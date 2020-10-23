@@ -39,19 +39,19 @@ public class MoveServo extends CommandBase {
   @Override
   public void execute() {
     runCount++;
-    System.out.println(servo.getAngle());
-    System.out.println(servo);
     if(runCount==1){
       if(servo!=null){isServo=true;}
       else{isServo=false;}
       iT=System.currentTimeMillis();
       }
       if(isServo){
+      System.out.println(servo.getAngle());
       servo.setAngle(position);
       if(System.currentTimeMillis() - iT > 500 && servo.getAngle() == position){
         done = true;
       }
     } else {
+      System.out.println(myServo.getAngle());
       myServo.setAngle(position);
       if(System.currentTimeMillis() - iT > 500 && myServo.getAngle() == position){
         done = true;

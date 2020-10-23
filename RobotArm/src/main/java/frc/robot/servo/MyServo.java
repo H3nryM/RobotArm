@@ -49,8 +49,8 @@ public class MyServo extends PWM {
    */
   public void setMinMax(int channel){
       if(channel == ServoChannels.HingeServoChannel.val){
-          kMaxServoAngle = ServoLimits.HingeServoMax.val;
-          kMinServoAngle = ServoLimits.HingeServoMin.val;
+        kMaxServoAngle = ServoLimits.HingeServoMax.val;
+        kMinServoAngle = ServoLimits.HingeServoMin.val;
 
       } else if (channel == ServoChannels.SpinServoChannel.val){
         kMaxServoAngle = ServoLimits.SpinServoMax.val;
@@ -121,7 +121,7 @@ public class MyServo extends PWM {
       degrees = kMaxServoAngle;
     }
 
-    setPosition(((degrees - kMinServoAngle)) / getServoAngleRange());
+    setPosition(degrees/180);
   }
 
   /**
@@ -133,7 +133,7 @@ public class MyServo extends PWM {
    * @return The angle in degrees to which the servo is set.
    */
   public double getAngle() {
-    return getPosition() * getServoAngleRange() + kMinServoAngle;
+    return getPosition() * getServoAngleRange();
   }
 
   private double getServoAngleRange() {

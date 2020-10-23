@@ -22,7 +22,7 @@ public class RobotContainer {
   private final LimelightSub limelight = new LimelightSub();
 
   // Servos
-  private final Servo hingeServo = new Servo(ServoChannels.HingeServoChannel.val);
+  // private final Servo hingeServo = new Servo(ServoChannels.HingeServoChannel.val);
   private final MyServo hingeMyServo = new MyServo(ServoChannels.HingeServoChannel.val);
   private final MyServo spinServo = new MyServo(ServoChannels.SpinServoChannel.val);
 
@@ -32,9 +32,15 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    joystick.getA()
-    .whenPressed(new MoveServo(hingeServo, 75));
+    // joystick.getA()
+    // .whenPressed(new MoveServo(hingeServo, 75));
     joystick.getB()
+    .whenPressed(new MoveServo(hingeMyServo, 65));
+    joystick.getA()
+    .whenPressed(new MoveServo(hingeMyServo, 35));
+    joystick.getXButtonValue()
+    .whenPressed(new MoveServo(hingeMyServo, 150));
+    joystick.getYButtonValue()
     .whenPressed(new MoveServo(hingeMyServo, 90));
 
   }
