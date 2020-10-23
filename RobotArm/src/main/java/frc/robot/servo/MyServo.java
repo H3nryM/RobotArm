@@ -133,7 +133,7 @@ public class MyServo extends PWM {
    * @return The angle in degrees to which the servo is set.
    */
   public double getAngle() {
-    return getPosition() * getServoAngleRange();
+    return getPosition()*180;
   }
 
   private double getServoAngleRange() {
