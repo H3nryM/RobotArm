@@ -1,8 +1,9 @@
-package frc.robot;
+package frc.robot.servo;
 
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.PWM;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import frc.robot.servo.ServoLimits;
@@ -47,27 +48,34 @@ public class MyServo extends PWM {
    * @param kMinServoAngle
    */
   public void setMinMax(int channel){
-      if(channel == 0){
+      if(channel == ServoChannels.HingeServoChannel.val){
           kMaxServoAngle = ServoLimits.HingeServoMax.val;
           kMinServoAngle = ServoLimits.HingeServoMin.val;
-      } else if (channel == 1){
+
+      } else if (channel == ServoChannels.SpinServoChannel.val){
         kMaxServoAngle = ServoLimits.SpinServoMax.val;
         kMinServoAngle = ServoLimits.SpinServoMin.val;
-      } else if (channel == 2){
+
+      } else if (channel == ServoChannels.LeftBaseServoChannel.val){
         kMaxServoAngle = ServoLimits.LeftBaseServoMax.val;
         kMinServoAngle = ServoLimits.LeftBaseServoMin.val;
-      } else if (channel == 3){
+
+      } else if (channel == ServoChannels.RightBaseServoChannel.val){
         kMaxServoAngle = ServoLimits.RightBaseServoMax.val;
         kMinServoAngle = ServoLimits.RightBaseServoMin.val;
-      } else if (channel == 4){
+
+      } else if (channel == ServoChannels.ExtenderServoChannel.val){
         kMaxServoAngle = ServoLimits.ExtenderServoMax.val;
         kMinServoAngle = ServoLimits.ExtenderServoMin.val;
-      } else if (channel == 5){
+
+      } else if (channel == ServoChannels.TipUpDownServoChannel.val){
         kMaxServoAngle = ServoLimits.TipUpDownServoMax.val;
         kMinServoAngle = ServoLimits.TipUpDownServoMin.val;
-      } else if (channel == 6){
+
+      } else if (channel == ServoChannels.TipSpinServoChannel.val){
         kMaxServoAngle = ServoLimits.TipSpinServoMax.val;
         kMinServoAngle = ServoLimits.TipSpinServoMin.val;
+
       }
   }
 

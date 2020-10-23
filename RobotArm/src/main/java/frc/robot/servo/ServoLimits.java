@@ -16,7 +16,7 @@ public enum ServoLimits {
     LeftBaseServoMin(/*ServoStartingPositions.LeftBaseServo*/ 90),
     RightBaseServoMin(/*ServoStartingPositions.RightBaseServo*/ 90),
 
-    ExtenderServoMax(/**/ 90),
+    ExtenderServoMax(/*ServoStartingPositions.ExtenderServoWall.val*/ 90),
     ExtenderServoMin(/**/ 90),
 
     TipUpDownServoMax(/**/ 90),
@@ -25,13 +25,10 @@ public enum ServoLimits {
     TipSpinServoMax(/**/ 90),
     TipSpinServoMin(/**/ 90),
 
-
     ;
-
 
     public final double val; 
     ServoLimits(double val){
         this.val = val;
     }
-
 }

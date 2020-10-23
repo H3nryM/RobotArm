@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.limelight.LimelightSub;
 import frc.robot.limelight.MoveToTx;
 import frc.robot.servo.MoveServo;
+import frc.robot.servo.MyServo;
 import frc.robot.servo.ServoAToBwBPs;
+import frc.robot.servo.ServoChannels;
 import frc.robot.servo.ServoPointAToB;
 import frc.robot.servo.ServoStartingPositions;
 import frc.robot.servo.SpeedServo;
@@ -20,9 +22,9 @@ public class RobotContainer {
   private final LimelightSub limelight = new LimelightSub();
 
   // Servos
-  private final Servo hingeServo = new Servo(0);
-  private final MyServo hingeMyServo = new MyServo(0);
-  private final Servo spinServo = new Servo(1);
+  private final Servo hingeServo = new Servo(ServoChannels.HingeServoChannel.val);
+  private final MyServo hingeMyServo = new MyServo(ServoChannels.HingeServoChannel.val);
+  private final MyServo spinServo = new MyServo(ServoChannels.SpinServoChannel.val);
 
 
   public RobotContainer() {
@@ -32,6 +34,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
     joystick.getA()
     .whenPressed(new MoveServo(hingeServo, 75));
+    joystick.getB()
+    .whenPressed(new MoveServo(hingeMyServo, 90));
 
   }
 
