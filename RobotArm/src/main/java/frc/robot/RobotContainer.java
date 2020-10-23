@@ -21,6 +21,7 @@ public class RobotContainer {
 
   // Servos
   private final Servo hingeServo = new Servo(0);
+  private final MyServo hingeMyServo = new MyServo(0);
   private final Servo spinServo = new Servo(1);
 
 

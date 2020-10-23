@@ -8,8 +8,22 @@ public enum ServoLimits {
     HingeServoMax(ServoStartingPositions.HingeServoWall.val),
     HingeServoMin(ServoStartingPositions.HingeServoCar.val),
 
-    // SpinServoMax(),
-    // SpinServoMin(),
+    SpinServoMax(ServoStartingPositions.SpinServoWall.val + 5),
+    SpinServoMin(ServoStartingPositions.SpinServoCar.val - 5),
+
+    LeftBaseServoMax(/*ServoStartingPositions.LeftBaseServo*/ 90),
+    RightBaseServoMax(/*ServoStartingPositions.RightBaseServo*/ 90),
+    LeftBaseServoMin(/*ServoStartingPositions.LeftBaseServo*/ 90),
+    RightBaseServoMin(/*ServoStartingPositions.RightBaseServo*/ 90),
+
+    ExtenderServoMax(/**/ 90),
+    ExtenderServoMin(/**/ 90),
+
+    TipUpDownServoMax(/**/ 90),
+    TipUpDownServoMin(/**/ 90),
+
+    TipSpinServoMax(/**/ 90),
+    TipSpinServoMin(/**/ 90),
 
 
     ;
