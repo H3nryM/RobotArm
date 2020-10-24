@@ -53,7 +53,7 @@ public class MoveServo extends CommandBase {
     } else {
       System.out.println(myServo.getAngle());
       myServo.setAngle(position);
-      if(System.currentTimeMillis() - iT > 500 && myServo.getAngle() == position){
+      if(System.currentTimeMillis() - iT > 500){
         done = true;
       }
     }
