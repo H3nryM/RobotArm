@@ -32,16 +32,14 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    // joystick.getA()
-    // .whenPressed(new MoveServo(hingeServo, 75));
-    joystick.getB()
-    .whenPressed(new MoveServo(hingeMyServo, 65));
     joystick.getA()
-    .whenPressed(new MoveServo(hingeMyServo, 35));
+    .whenPressed(new MoveServo(hingeMyServo, 15));
+    joystick.getB()
+    .whenPressed(new MoveServo(hingeMyServo, 0));
     joystick.getXButtonValue()
-    .whenPressed(new MoveServo(hingeMyServo, 150));
+    .whenPressed(new MoveServo(hingeMyServo, 125));
     joystick.getYButtonValue()
-    .whenPressed(new MoveServo(hingeMyServo, 90));
+    .whenPressed(new MoveServo(hingeMyServo, 135));
 
   }
 
