@@ -46,7 +46,6 @@ public class ServoAToBwBPs extends CommandBase {
     totalTurn = p2 - p1;
     bps = dbps + 2;
     if(totalTurn < 0){
-      System.out.println("Negative turn!");
       incs = Math.abs(totalTurn) / bps;
       fpos = p1 - incs;
       count = 0;

@@ -5,25 +5,27 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class ServoPointAToB extends CommandBase {
   
-  private Servo servo;
+  private MyServo myServo;
   private double p1;
   private double p2;
   private double runCount;
   private boolean done;
   private double iT;
+  private double totalTurn;
+  private double delay;
 
   /**
-   * Creates a new MoveServo.
+   * Creates a new MovemyServo.
    */
-  public ServoPointAToB(Servo servo, double p1, double p2) {
-  this.servo = servo;
+  public ServoPointAToB(MyServo myServo, double p1, double p2) {
+  this.myServo = myServo;
   this.p1 = p1;
   this.p2 = p2;
   }
 
   @Override
   public void initialize() {
-    System.out.println(servo.getAngle());
+    System.out.println(myServo.getAngle());
     System.out.println(p1 + " " + p2);
     runCount = 0;
     done = false;
@@ -31,16 +33,17 @@ public class ServoPointAToB extends CommandBase {
 
   @Override
   public void execute() {
-    System.out.println(servo.getAngle());
-    System.out.println(servo);
+    System.out.println(myServo.getAngle());
     runCount++;
     if(runCount == 1){
     iT = System.currentTimeMillis();
-      servo.setAngle(p1);
+    totalTurn = p2-p1;
+    delay=Math.abs(totalTurn)*5;
+    myServo.setAngle(p1);
     }
-    if(System.currentTimeMillis() - iT > 500){
-    servo.setAngle(p2);
-    if(System.currentTimeMillis() - iT > 1000){
+    if(System.currentTimeMillis() - iT > delay){
+    myServo.setAngle(p2);
+    if(System.currentTimeMillis() - iT > delay*2){
       done = true;
       }
     }
@@ -48,7 +51,7 @@ public class ServoPointAToB extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    servo.stopMotor();
+    myServo.stopMotor();
     runCount = 0;
     done = false;
     System.out.println("done");
