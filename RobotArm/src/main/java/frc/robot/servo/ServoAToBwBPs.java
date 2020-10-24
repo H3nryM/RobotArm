@@ -9,23 +9,23 @@ public class ServoAToBwBPs extends CommandBase {
   private double p2;
   private double iT;
   private double runCount;
-  private double dbps;
   private double bps;
   private double totalTurn;
   private double fpos;
   private double incs;
   private int count;
   private boolean done;
+  private double fDelay;
   private double delay;
 
   /**
    * Creates a new MoveMyServo.
    */
-  public ServoAToBwBPs(MyServo myServo, double p1, double p2, int dbps) {
+  public ServoAToBwBPs(MyServo myServo, double p1, double p2, int bps) {
   this.myServo = myServo;
   this.p1 = p1;
   this.p2 = p2;
-  this.dbps = dbps;
+  this.bps = bps;
   }
 
   @Override
@@ -43,8 +43,8 @@ public class ServoAToBwBPs extends CommandBase {
     iT = System.currentTimeMillis();
     myServo.setAngle(p1);
     totalTurn = p2 - p1;
-    bps = dbps;
-    delay = Math.abs(totalTurn)*5;
+    fDelay = Math.abs(totalTurn)*5.5;
+    delay = fDelay/bps;
     if(totalTurn < 0){
       incs = Math.abs(totalTurn) / bps;
       fpos = p1 - incs;
@@ -55,18 +55,22 @@ public class ServoAToBwBPs extends CommandBase {
       count = 0;
       }
     }
-    if(System.currentTimeMillis()-iT>delay && count==bps){done=true;}
+    if(System.currentTimeMillis()-iT > fDelay){
+
+     if(System.currentTimeMillis()-iT>delay && count==bps){done=true;}
     
-    if(System.currentTimeMillis()-iT > delay){
-      if(totalTurn < 0){
+      if(System.currentTimeMillis()-iT > delay){
+        if(totalTurn < 0){
         myServo.setAngle(fpos - (count * incs));
         count++;
         iT = System.currentTimeMillis();
-      } else {
+        } else {
         myServo.setAngle(fpos + (count * incs));
         count++;
         iT = System.currentTimeMillis();
+        }
       }
+
     }
 
   }
