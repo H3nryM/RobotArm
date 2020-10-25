@@ -4,30 +4,26 @@ public enum ServoStartingPositions{
 
     // for the servo that actuates the hinge, 2 default positions - 
     // first is flat against wall, other is 90 degrees pointing at car
-    HingeServoWall(135),
-    HingeServoCar(0),
+    HingeServoWall(ServoLimits.HingeServoMax.val),
+    HingeServoCar(ServoLimits.HingeServoMin.val),
 
     //for the servo that spins the robot arm
-    SpinServoWall(90),
-    SpinServoCar(90),
+    SpinServoWall(39),
+    SpinServoCar(39),
 
     // for the (i think) 2 servos that move the arm forward nearest the base
-    LeftBaseServoWall(90),
-    RightBaseServoWall(90),
-    LeftBaseServoCar(90),
-    RightBaseServoCar(90),
+    LeftBaseServoWall(180),
+    RightBaseServoWall(180-LeftBaseServoWall.val),
+    LeftBaseServoCar(55),
+    RightBaseServoCar(180-LeftBaseServoCar.val),
     
     // for the (i think) servo that moves the arm forward (above the base servos)
-    ExtenderServoWall(90),
-    ExtenderServoCar(90),
+    ExtenderServoWall(ServoLimits.ExtenderServoMax.val),
+    ExtenderServoCar(ServoLimits.ExtenderServoMin.val),
 
     // for the small servo at the end of the arm that tilts the L up and down
-    TipUpDownServoWall(90),
-    TipUpDownServoCar(90),
-
-    // for the small servo at the end of the arm that spins the L
-    TipSpinServoWall(90),
-    TipSpinServoCar(90),
+    TipUpDownServoWall(150),
+    TipUpDownServoCar(30),
 
     ;
 
