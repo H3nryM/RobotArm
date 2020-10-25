@@ -28,7 +28,6 @@ public class RobotContainer {
   private final MyServo rightBaseMyServo = new MyServo(ServoChannels.RightBaseServoChannel.val);
   private final MyServo extenderMyServo = new MyServo(ServoChannels.ExtenderServoChannel.val);
   private final MyServo tipUpDownMyServo = new MyServo(ServoChannels.TipUpDownServoChannel.val);
-  private final MyServo tipSpinMyServo = new MyServo(ServoChannels.TipSpinServoChannel.val);
 
 
   public RobotContainer() {
@@ -36,14 +35,6 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    joystick.getA()
-    .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, true));
-    joystick.getB()
-    .whenPressed(new MoveServo(extenderMyServo, 50, false));
-    joystick.getXButtonValue()
-    .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, true));
-    joystick.getYButtonValue()
-    .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoCar.val+5, true));
 
   }
 

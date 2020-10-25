@@ -8,7 +8,6 @@ public enum ServoChannels {
     RightBaseServoChannel(3),
     ExtenderServoChannel(4),
     TipUpDownServoChannel(5),
-    TipSpinServoChannel(6),
     
     ;
 

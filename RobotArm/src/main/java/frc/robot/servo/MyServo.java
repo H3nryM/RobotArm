@@ -71,12 +71,8 @@ public class MyServo extends PWM {
       } else if (channel == ServoChannels.TipUpDownServoChannel.val){
         kMaxServoAngle = ServoLimits.TipUpDownServoMax.val;
         kMinServoAngle = ServoLimits.TipUpDownServoMin.val;
-
-      } else if (channel == ServoChannels.TipSpinServoChannel.val){
-        kMaxServoAngle = ServoLimits.TipSpinServoMax.val;
-        kMinServoAngle = ServoLimits.TipSpinServoMin.val;
-
       }
+      
   }
 
   /**

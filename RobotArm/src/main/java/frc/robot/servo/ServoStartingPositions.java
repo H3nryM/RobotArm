@@ -22,12 +22,8 @@ public enum ServoStartingPositions{
     ExtenderServoCar(ServoLimits.ExtenderServoMin.val),
 
     // for the small servo at the end of the arm that tilts the L up and down
-    TipUpDownServoWall(90),
-    TipUpDownServoCar(90),
-
-    // for the small servo at the end of the arm that spins the L
-    TipSpinServoWall(90),
-    TipSpinServoCar(90),
+    TipUpDownServoWall(150),
+    TipUpDownServoCar(30),
 
     ;
 

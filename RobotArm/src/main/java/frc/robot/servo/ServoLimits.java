@@ -19,11 +19,8 @@ public enum ServoLimits {
     ExtenderServoMax(170),
     ExtenderServoMin(40),
 
-    TipUpDownServoMax(/**/ 90),
-    TipUpDownServoMin(/**/ 90),
-
-    TipSpinServoMax(/**/ 90),
-    TipSpinServoMin(/**/ 90),
+    TipUpDownServoMax(180),
+    TipUpDownServoMin(0),
 
     ;
 
