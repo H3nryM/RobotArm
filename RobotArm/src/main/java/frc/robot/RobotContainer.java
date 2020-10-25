@@ -23,7 +23,7 @@ public class RobotContainer {
 
   // Servos
   private final MyServo hingeMyServo = new MyServo(ServoChannels.HingeServoChannel.val);
-  private final MyServo spinServo = new MyServo(ServoChannels.SpinServoChannel.val);
+  private final MyServo spinMyServo = new MyServo(ServoChannels.SpinServoChannel.val);
 
 
   public RobotContainer() {
