@@ -5,19 +5,19 @@ package frc.robot.servo;
  */
 public enum ServoLimits {
 
-    HingeServoMax(ServoStartingPositions.HingeServoWall.val),
-    HingeServoMin(ServoStartingPositions.HingeServoCar.val),
+    HingeServoMax(135),
+    HingeServoMin(0),
 
     SpinServoMax(75),
     SpinServoMin(0),
 
-    LeftBaseServoMax(/*ServoStartingPositions.LeftBaseServo*/ 135),
-    RightBaseServoMax(/*ServoStartingPositions.RightBaseServo*/ 90),
-    LeftBaseServoMin(/*ServoStartingPositions.LeftBaseServo*/ 45),
-    RightBaseServoMin(/*ServoStartingPositions.RightBaseServo*/ 90),
+    LeftBaseServoMax(180),
+    RightBaseServoMax(LeftBaseServoMax.val),
+    LeftBaseServoMin(0),
+    RightBaseServoMin(LeftBaseServoMin.val),
 
-    ExtenderServoMax(/*ServoStartingPositions.ExtenderServoWall.val*/ 90),
-    ExtenderServoMin(/**/ 90),
+    ExtenderServoMax(170),
+    ExtenderServoMin(40),
 
     TipUpDownServoMax(/**/ 90),
     TipUpDownServoMin(/**/ 90),

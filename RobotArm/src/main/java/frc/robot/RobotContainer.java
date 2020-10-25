@@ -26,6 +26,9 @@ public class RobotContainer {
   private final MyServo spinMyServo = new MyServo(ServoChannels.SpinServoChannel.val);
   private final MyServo leftBaseMyServo = new MyServo(ServoChannels.LeftBaseServoChannel.val);
   private final MyServo rightBaseMyServo = new MyServo(ServoChannels.RightBaseServoChannel.val);
+  private final MyServo extenderMyServo = new MyServo(ServoChannels.ExtenderServoChannel.val);
+  private final MyServo tipUpDownMyServo = new MyServo(ServoChannels.TipUpDownServoChannel.val);
+  private final MyServo tipSpinMyServo = new MyServo(ServoChannels.TipSpinServoChannel.val);
 
 
   public RobotContainer() {
@@ -34,13 +37,13 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     joystick.getA()
-    .whenPressed(new MoveServo(leftBaseMyServo, 50, true));
+    .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, true));
     joystick.getB()
-    .whenPressed(new MoveServo(leftBaseMyServo, 85, false));
+    .whenPressed(new MoveServo(extenderMyServo, 50, false));
     joystick.getXButtonValue()
-    .whenPressed(new MoveServo(leftBaseMyServo, 100, true));
+    .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, true));
     joystick.getYButtonValue()
-    .whenPressed(new MoveServo(leftBaseMyServo, 95, true));
+    .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoCar.val+5, true));
 
   }
 
