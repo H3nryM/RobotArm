@@ -8,8 +8,8 @@ public enum ServoStartingPositions{
     HingeServoCar(0),
 
     //for the servo that spins the robot arm
-    SpinServoWall(90),
-    SpinServoCar(90),
+    SpinServoWall(39),
+    SpinServoCar(39),
 
     // for the (i think) 2 servos that move the arm forward nearest the base
     LeftBaseServoWall(90),

@@ -11,13 +11,15 @@ public class MoveServo extends CommandBase {
   private boolean done;
   private double iT;
   private double runCount;
+  private boolean brake;
 
   /**
    * Creates a new MoveServo.
    */
-  public MoveServo(MyServo myServo, double position) {
+  public MoveServo(MyServo myServo, double position, boolean brake) {
     this.myServo = myServo;
     this.position = position;
+    this.brake = brake;
     }
 
   @Override
@@ -41,7 +43,7 @@ public class MoveServo extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    myServo.stopMotor();
+    if(!brake){myServo.stopMotor();}
     done = false;
     runCount = 0;
     System.out.println("done");

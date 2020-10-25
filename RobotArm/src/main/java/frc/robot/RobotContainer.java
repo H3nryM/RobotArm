@@ -24,6 +24,8 @@ public class RobotContainer {
   // Servos
   private final MyServo hingeMyServo = new MyServo(ServoChannels.HingeServoChannel.val);
   private final MyServo spinMyServo = new MyServo(ServoChannels.SpinServoChannel.val);
+  private final MyServo leftBaseMyServo = new MyServo(ServoChannels.LeftBaseServoChannel.val);
+  private final MyServo rightBaseMyServo = new MyServo(ServoChannels.RightBaseServoChannel.val);
 
 
   public RobotContainer() {
@@ -31,18 +33,14 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    // joystick.getA()
-    // .whenPressed(new MoveServo(hingeMyServo, 0));
-    // joystick.getB()
-    // .whenPressed(new MoveServo(hingeMyServo, 135));
     joystick.getA()
-    .whenPressed(new ServoAToBwBPs(hingeMyServo, 0, 135, 5));
+    .whenPressed(new MoveServo(leftBaseMyServo, 50, true));
     joystick.getB()
-    .whenPressed(new ServoAToBwBPs(hingeMyServo, 135, 0, 5));
+    .whenPressed(new MoveServo(leftBaseMyServo, 85, false));
     joystick.getXButtonValue()
-    .whenPressed(new ServoPointAToB(hingeMyServo, 0, 135));
+    .whenPressed(new MoveServo(leftBaseMyServo, 100, true));
     joystick.getYButtonValue()
-    .whenPressed(new ServoPointAToB(hingeMyServo, 135, 0));
+    .whenPressed(new MoveServo(leftBaseMyServo, 95, true));
 
   }
 
