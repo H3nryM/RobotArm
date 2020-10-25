@@ -2,7 +2,7 @@ package frc.robot.servo;
 
 public enum ServoChannels {
 
-    HingeServoChannel(0),
+    HingeServoChannel(6),
     SpinServoChannel(1),
     LeftBaseServoChannel(2),
     RightBaseServoChannel(3),
