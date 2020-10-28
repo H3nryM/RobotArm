@@ -5,6 +5,7 @@ import com.team7419.PaddedXbox;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.command_groups.MoveAllServos;
 import frc.robot.limelight.LimelightSub;
 import frc.robot.limelight.MoveToTx;
 import frc.robot.servo.MoveServo;
@@ -39,10 +40,16 @@ public class RobotContainer {
     .whenPressed(new MoveServo(hingeMyServo, ServoStartingPositions.HingeServoWall.val, false));
     joystick.getB()
     .whenPressed(new MoveServo(hingeMyServo, ServoStartingPositions.HingeServoCar.val, false));
-    joystick.getA()
-    .whenPressed(new MoveServo(hingeMyServo, ServoStartingPositions.HingeServoWall.val, true));
-    joystick.getB()
-    .whenPressed(new MoveServo(hingeMyServo, ServoStartingPositions.HingeServoCar.val, true));
+    
+    joystick.getXButtonValue()
+    .whenPressed(new MoveAllServos(ServoStartingPositions.HingeServoWall.val, ServoStartingPositions.SpinServoWall.val, 
+    ServoStartingPositions.LeftBaseServoWall.val, ServoStartingPositions.RightBaseServoWall.val, 
+    ServoStartingPositions.ExtenderServoWall.val, ServoStartingPositions.TipUpDownServoWall.val, true));
+     
+    joystick.getYButtonValue()
+    .whenPressed(new MoveAllServos(ServoStartingPositions.HingeServoCar.val, ServoStartingPositions.SpinServoCar.val, 
+    ServoStartingPositions.LeftBaseServoCar.val, ServoStartingPositions.RightBaseServoCar.val, 
+    ServoStartingPositions.ExtenderServoCar.val, ServoStartingPositions.TipUpDownServoCar.val, true));
 
   }
 
