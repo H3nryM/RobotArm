@@ -5,8 +5,8 @@ package frc.robot.servo;
  */
 public enum ServoLimits {
 
-    HingeServoMax(135),
-    HingeServoMin(0),
+    HingeServoMax(135), // aka wall
+    HingeServoMin(0), // aka car
 
     SpinServoMax(75),
     SpinServoMin(0),

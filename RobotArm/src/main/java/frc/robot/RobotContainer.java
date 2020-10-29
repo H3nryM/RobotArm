@@ -42,14 +42,16 @@ public class RobotContainer {
     .whenPressed(new MoveServo(hingeMyServo, ServoStartingPositions.HingeServoCar.val, false));
     
     joystick.getXButtonValue()
-    .whenPressed(new MoveAllServos(ServoStartingPositions.HingeServoWall.val, ServoStartingPositions.SpinServoWall.val, 
-    ServoStartingPositions.LeftBaseServoWall.val, ServoStartingPositions.RightBaseServoWall.val, 
-    ServoStartingPositions.ExtenderServoWall.val, ServoStartingPositions.TipUpDownServoWall.val, true));
+    .whenPressed(new MoveAllServos(hingeMyServo, ServoStartingPositions.HingeServoWall.val, spinMyServo, 
+    ServoStartingPositions.SpinServoWall.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoWall.val, rightBaseMyServo, 
+    ServoStartingPositions.RightBaseServoWall.val, extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, 
+    tipUpDownMyServo, ServoStartingPositions.TipUpDownServoWall.val, true));
      
     joystick.getYButtonValue()
-    .whenPressed(new MoveAllServos(ServoStartingPositions.HingeServoCar.val, ServoStartingPositions.SpinServoCar.val, 
-    ServoStartingPositions.LeftBaseServoCar.val, ServoStartingPositions.RightBaseServoCar.val, 
-    ServoStartingPositions.ExtenderServoCar.val, ServoStartingPositions.TipUpDownServoCar.val, true));
+    .whenPressed(new MoveAllServos(hingeMyServo, ServoStartingPositions.HingeServoCar.val, spinMyServo, 
+    ServoStartingPositions.SpinServoCar.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, rightBaseMyServo, 
+    ServoStartingPositions.RightBaseServoCar.val, extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, 
+    tipUpDownMyServo, ServoStartingPositions.TipUpDownServoCar.val, true));
 
   }
 
