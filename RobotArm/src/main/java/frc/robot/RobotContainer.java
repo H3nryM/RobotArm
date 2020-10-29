@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.command_groups.MoveAllServos;
+import frc.robot.limelight.AToBWLimelight;
 import frc.robot.limelight.LimelightSub;
 import frc.robot.limelight.MoveToTx;
 import frc.robot.servo.MoveServo;
@@ -37,21 +38,19 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     joystick.getA()
-    .whenPressed(new MoveServo(hingeMyServo, ServoStartingPositions.HingeServoWall.val, false));
-    joystick.getB()
-    .whenPressed(new MoveServo(hingeMyServo, ServoStartingPositions.HingeServoCar.val, false));
+    .whileHeld(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
     
-    joystick.getXButtonValue()
-    .whenPressed(new MoveAllServos(hingeMyServo, ServoStartingPositions.HingeServoWall.val, spinMyServo, 
-    ServoStartingPositions.SpinServoWall.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoWall.val, rightBaseMyServo, 
-    ServoStartingPositions.RightBaseServoWall.val, extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, 
-    tipUpDownMyServo, ServoStartingPositions.TipUpDownServoWall.val, true));
+    // joystick.getXButtonValue()
+    // .whenPressed(new MoveAllServos(hingeMyServo, ServoStartingPositions.HingeServoWall.val, spinMyServo, 
+    // ServoStartingPositions.SpinServoWall.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoWall.val, rightBaseMyServo, 
+    // ServoStartingPositions.RightBaseServoWall.val, extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, 
+    // tipUpDownMyServo, ServoStartingPositions.TipUpDownServoWall.val, true));
      
-    joystick.getYButtonValue()
-    .whenPressed(new MoveAllServos(hingeMyServo, ServoStartingPositions.HingeServoCar.val, spinMyServo, 
-    ServoStartingPositions.SpinServoCar.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, rightBaseMyServo, 
-    ServoStartingPositions.RightBaseServoCar.val, extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, 
-    tipUpDownMyServo, ServoStartingPositions.TipUpDownServoCar.val, true));
+    // joystick.getYButtonValue()
+    // .whenPressed(new MoveAllServos(hingeMyServo, ServoStartingPositions.HingeServoCar.val, spinMyServo, 
+    // ServoStartingPositions.SpinServoCar.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, rightBaseMyServo, 
+    // ServoStartingPositions.RightBaseServoCar.val, extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, 
+    // tipUpDownMyServo, ServoStartingPositions.TipUpDownServoCar.val, true));
 
   }
 
