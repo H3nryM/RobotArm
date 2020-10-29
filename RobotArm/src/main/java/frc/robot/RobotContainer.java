@@ -38,7 +38,7 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     joystick.getA()
-    .whileHeld(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
+    .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
     
     // joystick.getXButtonValue()
     // .whenPressed(new MoveAllServos(hingeMyServo, ServoStartingPositions.HingeServoWall.val, spinMyServo, 
