@@ -66,7 +66,7 @@ public class AToBWLimelight extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    myServo.stopMotor();
+    // myServo.stopMotor();
     runCount = 0;
     done = false;
     System.out.println("done");

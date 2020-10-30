@@ -74,8 +74,8 @@ public class AAToBBLimelight extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    myServo1.stopMotor();
-    myServo2.stopMotor();
+    // myServo1.stopMotor();
+    // myServo2.stopMotor();
     runCount = 0;
     done = false;
     d1=false;

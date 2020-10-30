@@ -9,9 +9,6 @@ import frc.robot.limelight.*;
 import frc.robot.command_groups.ExtendersBrake;
 import frc.robot.command_groups.MoveAllServos;
 import frc.robot.command_groups.StopAllServos;
-import frc.robot.limelight.AToBWLimelight;
-import frc.robot.limelight.LimelightSub;
-import frc.robot.limelight.MoveToTx;
 import frc.robot.servo.MoveServo;
 import frc.robot.servo.MyServo;
 import frc.robot.servo.ServoAToBwBPs;
@@ -44,14 +41,21 @@ public class RobotContainer {
     // joystick.getA()
     // .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoMid.val, true));
 
+    // joystick.getA()
+    // // .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true)
+    // .whenPressed(new MoveServo(leftBaseMyServo, ServoStartingPositions.LeftBaseServoMid.val, false)
+    // .andThen(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, false))
+    // .andThen(new MoveServo(leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
+    // // .andThen(new AToBWLimelight(limelight, leftB, , false)));
+    // // we need to then find the distance away, figure out how much to move LB then extender.
+    // // .andThen(new AToBWLimelight(limelight, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
+
     joystick.getA()
-    // .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true)
-    .whenPressed(new MoveServo(leftBaseMyServo, ServoStartingPositions.LeftBaseServoMid.val, false)
-    .andThen(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, false))
-    .andThen(new MoveServo(leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
-    // .andThen(new AToBWLimelight(limelight, leftB, , false)));
-    // we need to then find the distance away, figure out how much to move LB then extender.
-    // .andThen(new AToBWLimelight(limelight, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
+    .whenPressed(new AAToBBLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, extenderMyServo,
+    ServoStartingPositions.ExtenderServoMid.val));
+
+    // joystick.getA()
+    // .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
 
     joystick.getB()
     .whenPressed(new StopAllServos(hingeMyServo, spinMyServo, leftBaseMyServo, rightBaseMyServo,
