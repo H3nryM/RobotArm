@@ -16,10 +16,13 @@ public enum ServoStartingPositions{
     RightBaseServoWall(180-LeftBaseServoWall.val),
     LeftBaseServoCar(55),
     RightBaseServoCar(180-LeftBaseServoCar.val),
+    LeftBaseServoMid(145),
+    RightBaseServoMid(180-LeftBaseServoMid.val),
     
     // for the (i think) servo that moves the arm forward (above the base servos)
     ExtenderServoWall(ServoLimits.ExtenderServoMax.val),
     ExtenderServoCar(ServoLimits.ExtenderServoMin.val),
+    ExtenderServoMid(135),
 
     // for the small servo at the end of the arm that tilts the L up and down
     TipUpDownServoWall(150),

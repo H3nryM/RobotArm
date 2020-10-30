@@ -21,7 +21,7 @@ public class AToBWLimelight extends CommandBase {
    * Creates a new MovemyServo.
    */
   public AToBWLimelight(LimelightSub limelight, MyServo myServo, double p1, boolean horizontal) {
-  addRequirements(limelight);
+  // addRequirements(limelight);
   this.limelight = limelight;
   this.myServo = myServo;
   this.p1 = p1;
