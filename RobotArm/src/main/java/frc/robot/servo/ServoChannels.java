@@ -7,7 +7,7 @@ public enum ServoChannels {
     LeftBaseServoChannel(2),
     RightBaseServoChannel(3),
     ExtenderServoChannel(4),
-    TipUpDownServoChannel(5),
+    // TipUpDownServoChannel(5), // was removed.
     
     ;
 

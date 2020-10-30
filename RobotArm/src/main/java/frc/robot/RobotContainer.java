@@ -32,7 +32,7 @@ public class RobotContainer {
   private final MyServo leftBaseMyServo = new MyServo(ServoChannels.LeftBaseServoChannel.val);
   private final MyServo rightBaseMyServo = new MyServo(ServoChannels.RightBaseServoChannel.val);
   private final MyServo extenderMyServo = new MyServo(ServoChannels.ExtenderServoChannel.val);
-  private final MyServo tipUpDownMyServo = new MyServo(ServoChannels.TipUpDownServoChannel.val);
+  // private final MyServo tipUpDownMyServo = new MyServo(ServoChannels.TipUpDownServoChannel.val);
 
 
   public RobotContainer() {
@@ -41,25 +41,31 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
     
-    joystick.getA()
-    .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoMid.val, true));
+    // joystick.getA()
+    // .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoMid.val, true));
 
+    joystick.getA()
+    // .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true)
+    .whenPressed(new MoveServo(leftBaseMyServo, ServoStartingPositions.LeftBaseServoMid.val, false)
+    .andThen(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, false))
+    .andThen(new MoveServo(leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
+    // .andThen(new AToBWLimelight(limelight, leftB, , false)));
+    // we need to then find the distance away, figure out how much to move LB then extender.
+    // .andThen(new AToBWLimelight(limelight, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
 
     joystick.getB()
     .whenPressed(new StopAllServos(hingeMyServo, spinMyServo, leftBaseMyServo, rightBaseMyServo,
-    extenderMyServo, tipUpDownMyServo));
+    extenderMyServo));
 
     joystick.getXButtonValue()
     .whenPressed(new MoveAllServos(spinMyServo, ServoStartingPositions.SpinServoWall.val, spinMyServo, 
     ServoStartingPositions.SpinServoWall.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoWall.val, rightBaseMyServo, 
-    extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, 
-    tipUpDownMyServo, ServoStartingPositions.TipUpDownServoWall.val));
+    extenderMyServo, ServoStartingPositions.ExtenderServoWall.val));
      
     joystick.getYButtonValue()
     .whenPressed(new MoveAllServos(spinMyServo, ServoStartingPositions.SpinServoCar.val, spinMyServo, 
     ServoStartingPositions.SpinServoCar.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, rightBaseMyServo, 
-    extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, 
-    tipUpDownMyServo, ServoStartingPositions.TipUpDownServoCar.val));
+    extenderMyServo, ServoStartingPositions.ExtenderServoCar.val));
 
 
 
