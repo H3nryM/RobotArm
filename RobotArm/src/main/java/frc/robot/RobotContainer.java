@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.limelight.*;
+import frc.robot.command_groups.AAToBBWithWait;
 import frc.robot.command_groups.ExtendersBrake;
 import frc.robot.command_groups.MoveAllServos;
 import frc.robot.command_groups.StopAllServos;
@@ -51,8 +52,8 @@ public class RobotContainer {
     // // .andThen(new AToBWLimelight(limelight, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
 
     joystick.getA()
-    .whenPressed(new AAToBBLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, extenderMyServo,
-    ServoStartingPositions.ExtenderServoMid.val));
+    .whenPressed(new AAToBBWithWait(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, extenderMyServo,
+    ServoStartingPositions.ExtenderServoMid.val, 1000));
 
     // joystick.getA()
     // .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
