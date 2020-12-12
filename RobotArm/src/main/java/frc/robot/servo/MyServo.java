@@ -19,7 +19,7 @@ public class MyServo extends PWM {
   private double kMinServoAngle;
 
   protected static final double kDefaultMaxServoPWM = 2.4;
-  protected static final double kDefaultMinServoPWM = 0.6;
+  protected static final double kDefaultMinServoPWM = 0.6; 
 
   /**
    * Constructor.<br>
