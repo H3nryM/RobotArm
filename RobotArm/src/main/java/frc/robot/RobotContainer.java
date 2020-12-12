@@ -51,16 +51,16 @@ public class RobotContainer {
     // // we need to then find the distance away, figure out how much to move LB then extender.
     // // .andThen(new AToBWLimelight(limelight, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
 
-    joystick.getA()
-    .whenPressed(new AAToBBWithWait(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, extenderMyServo,
-    ServoStartingPositions.ExtenderServoMid.val, 1000));
-
     // joystick.getA()
-    // .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
+    // .whenPressed(new AAToBBWithWait(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, extenderMyServo,
+    // ServoStartingPositions.ExtenderServoMid.val, 1000));
 
-    joystick.getB()
-    .whenPressed(new StopAllServos(hingeMyServo, spinMyServo, leftBaseMyServo, rightBaseMyServo,
-    extenderMyServo));
+    joystick.getA()
+    .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
+
+    // joystick.getB()
+    // .whenPressed(new StopAllServos(hingeMyServo, spinMyServo, leftBaseMyServo, rightBaseMyServo,
+    // extenderMyServo));
 
     joystick.getXButtonValue()
     .whenPressed(new MoveAllServos(spinMyServo, ServoStartingPositions.SpinServoWall.val, spinMyServo, 

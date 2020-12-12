@@ -25,6 +25,8 @@ public class LimelightSub extends SubsystemBase{
         SmartDashboard.putNumber("ty", y);
     }
 
-    public double getTx(){return -ty.getDouble(0);} // negated and tx is ty due to cam rotation
-    public double getTy(){return -tx.getDouble(0);} // negated and ty is tx due to cam rotation
+    // public double getTx(){return -ty.getDouble(0);} // negated and tx is ty due to cam rotation
+    // public double getTy(){return -tx.getDouble(0);} // negated and ty is tx due to cam rotation
+    public double getTx(){return tx.getDouble(0);} // just for testing without payload
+    public double getTy(){return ty.getDouble(0);} // just for testing without payload
 }

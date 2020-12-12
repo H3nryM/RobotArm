@@ -50,14 +50,14 @@ public class AToBWLimelight extends CommandBase {
     if(System.currentTimeMillis() - iT > delay){
     myServo.setAngle(p1+limelight.getTx());
     if(limelight.getTx()<1){
-      done = true;
+      // done = true;
         }
       }
     } else {
       if(System.currentTimeMillis() - iT > delay){
       myServo.setAngle(p1+limelight.getTy());
       if(limelight.getTy()<1){
-      done = true;
+      // done = true;
         }
       }
     }
