@@ -4,6 +4,7 @@ import com.team7419.PaddedXbox;
 
 import frc.robot.limelight.*;
 import frc.robot.command_groups.MoveAllServos;
+import frc.robot.command_groups.StopAllServos;
 import frc.robot.servo.MyServo;
 import frc.robot.servo.ServoChannels;
 import frc.robot.servo.ServoStartingPositions;
@@ -14,7 +15,7 @@ public class RobotContainer {
   private final LimelightSub limelight = new LimelightSub();
 
   // Servos
-  // private final MyServo hingeMyServo = new MyServo(ServoChannels.HingeServoChannel.val);
+  private final MyServo hingeMyServo = new MyServo(ServoChannels.HingeServoChannel.val);
   private final MyServo spinMyServo = new MyServo(ServoChannels.SpinServoChannel.val);
   private final MyServo leftBaseMyServo = new MyServo(ServoChannels.LeftBaseServoChannel.val);
   private final MyServo rightBaseMyServo = new MyServo(ServoChannels.RightBaseServoChannel.val);
@@ -31,16 +32,19 @@ public class RobotContainer {
     .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
 
     joystick.getB()
-    .whenPressed(new AToBWLimelight(limelight, extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, false));
+    .whileHeld(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
 
     // joystick.getB()
-    // .whenPressed(new StopAllServos(hingeMyServo, spinMyServo, leftBaseMyServo, rightBaseMyServo,
-    // extenderMyServo));
+    // .whenPressed(new AToBWLimelight(limelight, extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, false));
 
     joystick.getXButtonValue()
-    .whenPressed(new MoveAllServos(spinMyServo, ServoStartingPositions.SpinServoWall.val, spinMyServo, 
-    ServoStartingPositions.SpinServoWall.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoWall.val, rightBaseMyServo, 
-    extenderMyServo, ServoStartingPositions.ExtenderServoWall.val));
+    .whenPressed(new StopAllServos(hingeMyServo, spinMyServo, leftBaseMyServo, rightBaseMyServo,
+    extenderMyServo));
+
+    // joystick.getXButtonValue()
+    // .whenPressed(new MoveAllServos(spinMyServo, ServoStartingPositions.SpinServoWall.val, spinMyServo, 
+    // ServoStartingPositions.SpinServoWall.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoWall.val, rightBaseMyServo, 
+    // extenderMyServo, ServoStartingPositions.ExtenderServoWall.val));
      
     joystick.getYButtonValue()
     .whenPressed(new MoveAllServos(spinMyServo, ServoStartingPositions.SpinServoCar.val, spinMyServo, 

@@ -8,11 +8,10 @@ public class AToBWLimelight extends CommandBase {
   private MyServo myServo;
   private LimelightSub limelight;
   private double p1;
-  private double p2;
+  private double ca; // current angle
   private double runCount;
   private boolean done;
   private double iT;
-  private double totalTurn;
   private double delay;
   private boolean horizontal;
 
@@ -30,7 +29,7 @@ public class AToBWLimelight extends CommandBase {
   @Override
   public void initialize() {
     System.out.println(myServo.getAngle());
-    System.out.println(p1 + " " + p2);
+    System.out.println(ca);
     runCount = 0;
     done = false;
   }
@@ -41,22 +40,28 @@ public class AToBWLimelight extends CommandBase {
     runCount++;
     if(runCount == 1){
     iT = System.currentTimeMillis();
-    totalTurn = p2-p1;
-    delay=Math.abs(totalTurn)*5;
+    delay=300;
     myServo.setAngle(p1);
+    ca=p1;
     }
+
     if(horizontal){
     if(System.currentTimeMillis() - iT > delay){
-    myServo.setAngle(p1+limelight.getTx());
-    if(limelight.getTx()<1){
-      // done = true;
+    // if(ca+limelight.getTx() > 15 || ca+limelight.getTx() < -15){
+    //   ca=ca-(0.25*limelight.getTx());
+    // } else{ca=ca-(limelight.getTx());}
+    ca=ca-limelight.getTx();
+    myServo.setAngle(ca);
+    if(limelight.getTx()<1 && limelight.getTx()>-1){
+      done = true;
         }
+        delay=delay+System.currentTimeMillis()-iT;
       }
     } else {
       if(System.currentTimeMillis() - iT > delay){
       myServo.setAngle(p1+limelight.getTy());
-      if(limelight.getTy()<1){
-      // done = true;
+      if(limelight.getTy()<1 && limelight.getTy()>-1){
+      done = true;
         }
       }
     }
@@ -65,7 +70,7 @@ public class AToBWLimelight extends CommandBase {
 
   @Override
   public void end(boolean interrupted) {
-    // myServo.stopMotor();
+    myServo.stopMotor();
     runCount = 0;
     done = false;
     System.out.println("done");
