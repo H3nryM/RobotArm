@@ -1,6 +1,5 @@
 package frc.robot.servo;
 
-import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class ServoPointAToB extends CommandBase {

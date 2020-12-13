@@ -1,10 +1,8 @@
 package frc.robot.limelight;
 
 import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 
 public class MoveToTx extends CommandBase {
     @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
@@ -13,7 +11,6 @@ public class MoveToTx extends CommandBase {
     private LimelightSub limelight;
     
     private double tx;
-    private double ty;
 
     public MoveToTx(LimelightSub limelight, Servo servo) {
     addRequirements(limelight);
@@ -30,7 +27,6 @@ public class MoveToTx extends CommandBase {
     SmartDashboard.putString("command status", "pid");
 
     tx = limelight.getTx();
-    ty = limelight.getTy();
     servo.setAngle(tx);
 
     // distanceToTarget =  (Constants.kTargetHeight - RobotConstants.kCameraHeight) / Math.tan(Math.toRadians(ty));

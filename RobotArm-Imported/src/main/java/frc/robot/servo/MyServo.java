@@ -3,7 +3,6 @@ package frc.robot.servo;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.PWM;
-import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import frc.robot.servo.ServoLimits;
@@ -132,9 +131,9 @@ public class MyServo extends PWM {
     return getPosition()*180;
   }
 
-  private double getServoAngleRange() {
-    return kMaxServoAngle - kMinServoAngle;
-  }
+  // private double getServoAngleRange() {
+  //   return kMaxServoAngle - kMinServoAngle;
+  // }
 
   @Override
   public void initSendable(SendableBuilder builder) {

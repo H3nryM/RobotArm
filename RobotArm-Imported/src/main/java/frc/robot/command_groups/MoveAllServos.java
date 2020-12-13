@@ -3,7 +3,6 @@ package frc.robot.command_groups;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.servo.MoveServo;
 import frc.robot.servo.MyServo;
-import frc.robot.servo.ServoChannels;
 
 public class MoveAllServos extends SequentialCommandGroup {
 

@@ -1,6 +1,5 @@
 package frc.robot.servo;
 
-import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.servo.MyServo;
 

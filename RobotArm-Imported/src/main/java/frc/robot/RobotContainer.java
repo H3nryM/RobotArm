@@ -2,22 +2,11 @@ package frc.robot;
 
 import com.team7419.PaddedXbox;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.limelight.*;
-import frc.robot.command_groups.AAToBBWithWait;
-import frc.robot.command_groups.ExtendersBrake;
 import frc.robot.command_groups.MoveAllServos;
-import frc.robot.command_groups.StopAllServos;
-import frc.robot.servo.MoveServo;
 import frc.robot.servo.MyServo;
-import frc.robot.servo.ServoAToBwBPs;
 import frc.robot.servo.ServoChannels;
-import frc.robot.servo.ServoPointAToB;
 import frc.robot.servo.ServoStartingPositions;
-import frc.robot.servo.SpeedServo;
-import edu.wpi.first.wpilibj2.command.Command;
 
 public class RobotContainer {
 
@@ -25,7 +14,7 @@ public class RobotContainer {
   private final LimelightSub limelight = new LimelightSub();
 
   // Servos
-  private final MyServo hingeMyServo = new MyServo(ServoChannels.HingeServoChannel.val);
+  // private final MyServo hingeMyServo = new MyServo(ServoChannels.HingeServoChannel.val);
   private final MyServo spinMyServo = new MyServo(ServoChannels.SpinServoChannel.val);
   private final MyServo leftBaseMyServo = new MyServo(ServoChannels.LeftBaseServoChannel.val);
   private final MyServo rightBaseMyServo = new MyServo(ServoChannels.RightBaseServoChannel.val);
