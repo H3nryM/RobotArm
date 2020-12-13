@@ -38,25 +38,11 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-    
-    // joystick.getA()
-    // .whenPressed(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoMid.val, true));
-
-    // joystick.getA()
-    // // .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true)
-    // .whenPressed(new MoveServo(leftBaseMyServo, ServoStartingPositions.LeftBaseServoMid.val, false)
-    // .andThen(new MoveServo(extenderMyServo, ServoStartingPositions.ExtenderServoCar.val, false))
-    // .andThen(new MoveServo(leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
-    // // .andThen(new AToBWLimelight(limelight, leftB, , false)));
-    // // we need to then find the distance away, figure out how much to move LB then extender.
-    // // .andThen(new AToBWLimelight(limelight, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, false)));
-
-    // joystick.getA()
-    // .whenPressed(new AAToBBWithWait(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, extenderMyServo,
-    // ServoStartingPositions.ExtenderServoMid.val, 1000));
-
     joystick.getA()
     .whenPressed(new AToBWLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, true));
+
+    joystick.getB()
+    .whenPressed(new AToBWLimelight(limelight, extenderMyServo, ServoStartingPositions.ExtenderServoWall.val, false));
 
     // joystick.getB()
     // .whenPressed(new StopAllServos(hingeMyServo, spinMyServo, leftBaseMyServo, rightBaseMyServo,
@@ -71,17 +57,6 @@ public class RobotContainer {
     .whenPressed(new MoveAllServos(spinMyServo, ServoStartingPositions.SpinServoCar.val, spinMyServo, 
     ServoStartingPositions.SpinServoCar.val, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, rightBaseMyServo, 
     extenderMyServo, ServoStartingPositions.ExtenderServoCar.val));
-
-
-
-    // joystick.getA()
-    // .whenPressed(new AAToBBLimelight(limelight, spinMyServo, ServoStartingPositions.SpinServoCar.val, 
-    // leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val));
-
-    // joystick.getB()
-    // .whenPressed(new ExtenderGroup(limelight, leftBaseMyServo, ServoStartingPositions.LeftBaseServoCar.val, rightBaseMyServo, 
-    // extenderMyServo, ServoStartingPositions.ExtenderServoCar.val));
-    
 
   }
 
